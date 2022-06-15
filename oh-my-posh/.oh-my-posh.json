@@ -5,20 +5,6 @@
       "alignment": "right",
       "segments": [
         {
-          "background": "#91ddff",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
-          "properties": {
-            "folder_icon": "\uf115",
-            "folder_separator_icon": " \ue0b1 ",
-            "home_icon": "\uf7db",
-            "style": "agnoster"
-          },
-          "style": "powerline",
-          "template": " {{ .Path }} ",
-          "type": "path"
-        },
-        {
           "type": "git",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",
@@ -73,7 +59,22 @@
     {
       "alignment": "left",
       "newline": true,
-      "segments": [],
+      "segments": [
+        {
+          "background": "#91ddff",
+          "foreground": "#100e23",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "folder_icon": "\uf115",
+            "folder_separator_icon": " \ue0b1 ",
+            "home_icon": "\uf7db",
+            "style": "agnoster"
+          },
+          "style": "powerline",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        }
+      ],
       "type": "prompt"
     }
   ],
