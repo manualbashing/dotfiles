@@ -27,3 +27,4 @@ batgrep () {
   }
 
 alias lumos='powershell.exe -NoProfile -Command "Invoke-Lumos"'
+alias ps='pwsh -nologo'
