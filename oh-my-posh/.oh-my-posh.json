@@ -6,16 +6,35 @@
       "newline": true,
       "segments": [
         {
-          "background": "#ffffff",
+          "type": "git",
+          "style": "diamond",
+          "leading_diamond": "",
+          "foreground": "#193549",
+          "background": "#ffeb3b",
+          "background_templates": [
+            " {{ if or (.Working.Changed) (.Staging.Changed) }}#FFEB3B{{ end }} ",
+            " {{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }} ",
+            " {{ if gt .Ahead 0 }}#B388FF{{ end }} ",
+            " {{ if gt .Behind 0 }}#B388FB{{ end }} "
+          ],
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          }
+        },
+        {
+          "background": "#4fe67f",
           "foreground": "#100e23",
           "powerline_symbol": "\ue0b0",
-          "style": "powerline",
+          "style": "plain",
           "template": " {{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
           "type": "shell",
-          "style": "powerline",
+          "style": "plain",
           "powerline_symbol": "\uE0B0",
           "foreground": "#ffffff",
           "background": "#0077c2",
@@ -28,8 +47,8 @@
         },
         {
           "type": "az",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "style": "diamond",
+          "trailing_diamond": "",
           "foreground": "#000000",
           "background": "#9ec3f0",
           "template": " \uFD03 {{ .Name }} "
@@ -42,53 +61,23 @@
       "newline": true,
       "segments": [
         {
-          "background": "#91ddff",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
+          "background": "#585c5f",
+          "foreground": "#10f596",
           "properties": {
             "folder_icon": "\uf115",
             "folder_separator_icon": " \ue0b1 ",
             "home_icon": "\uf7db",
             "style": "agnoster"
           },
-          "style": "powerline",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
           "template": " {{ .Path }} ",
           "type": "path"
-        },
-        {
-          "type": "git",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#193549",
-          "background": "#ffeb3b",
-          "background_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FFEB3B{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
-            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
-            "{{ if gt .Behind 0 }}#B388FB{{ end }}"
-          ],
-          "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}",
-          "properties": {
-            "fetch_status": true,
-            "fetch_stash_count": true,
-            "fetch_upstream_icon": true
-          }
         }
       ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "#E06C75",
-          "template": " "
-        }
-      ],
-      "type": "prompt"
+      "type": "prompt",
+      "vertical_offset": 1
     },
     {
       "alignment": "left",
@@ -101,7 +90,8 @@
           "template": "\u276F"
         }
       ],
-      "type": "prompt"
+      "type": "prompt",
+      "vertical_offset": 1
     }
   ],
   "transient_prompt": {
