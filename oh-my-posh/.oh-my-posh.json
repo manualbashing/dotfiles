@@ -5,13 +5,16 @@
       "alignment": "right",
       "segments": [
         {
-          "foreground": "#007ACC",
+          "type": "shell",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#0077c2",
           "properties": {
-            "time_format": "15:04:05"
-          },
-          "style": "plain",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "type": "time"
+            "mapped_shell_names": {
+              "pwsh": "PowerShell"
+            }
+          }
         }
       ],
       "type": "prompt",
