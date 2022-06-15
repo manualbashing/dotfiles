@@ -24,6 +24,14 @@
               "pwsh": "PowerShell"
             }
           }
+        },
+        {
+          "type": "az",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#000000",
+          "background": "#9ec3f0",
+          "template": " \uFD03 {{ .Name }} "
         }
       ],
       "type": "prompt",
