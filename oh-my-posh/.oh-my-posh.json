@@ -78,12 +78,13 @@
     },
     {
       "alignment": "left",
+      "newline": true,
       "segments": [
         {
           "type": "text",
           "style": "plain",
           "foreground": "#E06C75",
-          "template": "\u276F"
+          "template": "\u276F "
         }
       ],
       "type": "prompt"
@@ -91,8 +92,8 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#ffffff",
-    "template": "> "
+    "foreground": "#E06C75",
+    "template": "\u276F "
   },
   "final_space": true,
   "version": 2
