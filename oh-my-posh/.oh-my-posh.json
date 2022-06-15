@@ -18,7 +18,7 @@
           "powerline_symbol": "\uE0B0",
           "foreground": "#ffffff",
           "background": "#0077c2",
-          "template": " {{ .Name }} ({{ .Version }}) ",
+          "template": " 🖥 {{ .Name }} ({{ .Version }}) ",
           "properties": {
             "mapped_shell_names": {
               "pwsh": "PowerShell"
