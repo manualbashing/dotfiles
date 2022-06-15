@@ -15,6 +15,21 @@
               "pwsh": "PowerShell {{ .Version }}"
             }
           }
+        },
+        {
+        "type": "git",
+        "style": "powerline",
+        "powerline_symbol": "",
+        "invert_powerline": false,
+        "foreground": "#193549",
+        "background": "#fffb38",
+        "leading_diamond": "",
+        "trailing_diamond": "",
+        "properties": {
+          "display_status": true,
+          "display_stash_count": true,
+          "display_upstream_icon": true
+          }
         }
       ],
       "type": "prompt",
@@ -48,17 +63,11 @@
         },
         {
           "background": "#95ffa4",
-          "type": "git",
           "foreground": "#193549",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
           "template": " {{ .HEAD }} ",
-          "invert_powerline": false,
-          "properties": {
-            "display_status": true,
-            "display_stash_count": true,
-            "display_upstream_icon": true
-          }
+          "type": "git"
         }
       ],
       "type": "prompt"
