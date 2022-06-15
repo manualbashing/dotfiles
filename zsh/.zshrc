@@ -26,7 +26,7 @@ export ZSH="/home/mbatsching/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="powerlevel10k/powerlevel10k"
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/manualbashing/dotfiles/mother/oh-my-posh/.oh-my-posh.json)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -176,3 +176,4 @@ export PATH="/home/mbatsching/git/git-fuzzy/bin:$PATH"
 export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 
 export PATH=$PATH:/home/mbatsching/.dotnet/tools   
+enable_poshtransientprompt
