@@ -12,7 +12,7 @@
           "background": "#0077c2",
           "properties": {
             "mapped_shell_names": {
-              "pwsh": "PowerShell"
+              "pwsh": "PowerShell {{ .Version }}"
             }
           }
         }
