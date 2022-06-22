@@ -6,8 +6,21 @@
       "newline": true,
       "segments": [
         {
-          "type": "git",
+          "type": "shell",
           "style": "diamond",
+          "leading_diamond": "",
+          "foreground": "#ffffff",
+          "background": "#0077c2",
+          "template": " {{ .Name }} ({{ .Version }}) ",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "PowerShell"
+            }
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
           "leading_diamond": "",
           "foreground": "#193549",
           "background": "#ffeb3b",
@@ -25,42 +38,6 @@
           }
         },
         {
-          "background": "#4fe67f",
-          "foreground": "#100e23",
-          "powerline_symbol": "\ue0b0",
-          "style": "plain",
-          "template": " {{ .UserName }}@{{ .HostName }} ",
-          "type": "session"
-        },
-        {
-          "type": "shell",
-          "style": "plain",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#ffffff",
-          "background": "#0077c2",
-          "template": " {{ .Name }} ({{ .Version }}) ",
-          "properties": {
-            "mapped_shell_names": {
-              "pwsh": "PowerShell"
-            }
-          }
-        },
-        {
-          "type": "az",
-          "style": "diamond",
-          "trailing_diamond": "",
-          "foreground": "#000000",
-          "background": "#9ec3f0",
-          "template": " \uFD03 {{ .Name }} "
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
           "background": "#585c5f",
           "foreground": "#10f596",
           "properties": {
@@ -70,7 +47,6 @@
             "style": "agnoster"
           },
           "style": "diamond",
-          "leading_diamond": "",
           "trailing_diamond": "",
           "template": " {{ .Path }} ",
           "type": "path"
