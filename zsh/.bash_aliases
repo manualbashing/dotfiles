@@ -28,3 +28,5 @@ batgrep () {
 
 alias lumos='powershell.exe -NoProfile -Command "Invoke-Lumos"'
 alias ps='pwsh -nologo'
+
+function winget { pushd -q; cd /mnt/c/; cmd.exe /c "winget $@"; popd -q; }
