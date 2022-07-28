@@ -1,0 +1,40 @@
+---
+version: "3"
+services:
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    hostname: azure-syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /mnt/syncthing:/var/data
+      - /mnt/pictures:/var/pictures
+      - /srv/syncthing:/var/syncthing
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+    restart: unless-stopped
+  wallabag:
+    image: wallabag/wallabag
+    environment:
+            - SYMFONY__ENV__DOMAIN_NAME=http://docker01.westeurope.cloudapp.azure.com:49167
+    ports:
+      - 49167:80
+    volumes:
+      - /opt/wallabag/images:/var/www/wallabag/web/assets/images
+      - /opt/wallabag/data:/var/www/wallabag/data
+    healthcheck:
+      test: ["CMD", "wget" ,"--no-verbose", "--tries=1", "--spider", "http://localhost"]
+      interval: 1m
+      timeout: 3s
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 20s
+      timeout: 3s

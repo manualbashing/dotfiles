@@ -86,7 +86,34 @@ eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/manualbas
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-completions zsh-pyenv)
+plugins=(git zsh-autosuggestions zsh-completions zsh-pyenv ssh-agent)
+
+# Ensure agent is running
+ssh-add -l &>/dev/null
+if [ $? -eq 2 ]; then
+  # Could not open a connection to your authentication agent.
+
+   # Load stored agent connection info.
+   test -r ~/.ssh-agent && \
+     eval "$(<~/.ssh-agent)" >/dev/null
+
+   ssh-add -l &>/dev/null
+   if [ $? -eq 2 ]; then
+     # Start agent and store agent connection info.
+     (umask 066; ssh-agent > ~/.ssh-agent)
+     eval "$(<~/.ssh-agent)" >/dev/null
+   fi
+fi
+
+# Load identities
+ssh-add -l &>/dev/null
+if [ $? -eq 1 ]; then
+ # The agent has no identities.
+ # Time to add one.
+ ssh-add -t 4h
+fi
+
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -177,3 +204,9 @@ export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 
 export PATH=$PATH:/home/mbatsching/.dotnet/tools   
 enable_poshtransientprompt
+
+# Start Docker daemon automatically when logging in if not running.
+service docker status > /dev/null
+if [[ "$?" -eq "1" || "$?" -eq "3" ]]; then
+    sudo service docker start 
+fi
