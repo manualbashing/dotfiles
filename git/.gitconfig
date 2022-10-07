@@ -1,0 +1,29 @@
+[user]
+	name = Manuel Batsching
+	email = m.batsching@abtis.de
+
+[mergetool]
+    prompt = false
+    keepBackup = false
+    keepTemporaries = false
+
+[merge]
+    tool = vscode
+
+
+[difftool "vscode"]
+    name = VSCode
+    trustExitCode = true
+    cmd = code \"$LOCAL\" \"$REMOTE\" --diff --wait --new-window
+
+[alias]
+	glog = log --name-status --graph --decorate --pretty=format:\"%h [%ae] %s\"
+
+[core]
+	editor = code --wait
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
