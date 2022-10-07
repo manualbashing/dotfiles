@@ -19,7 +19,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mbatsching/.oh-my-zsh"
+#export ZSH="/home/mbatsching/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,7 +115,7 @@ fi
 
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -144,6 +144,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=black,bold,underline"
+
+autoload bashcompinit 
+bashcompinit 
+
 source /etc/bash_completion.d/azure-cli
 # For Loading the SSH key
 #/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
@@ -158,12 +162,10 @@ source /etc/bash_completion.d/azure-cli
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
 
-autoload bashcompinit 
-bashcompinit source /usr/local/etc/bash_completion.d/az
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv virtualenv-init -)"
 . $HOME/.asdf/asdf.sh
 
 # append completions to fpath
@@ -197,7 +199,7 @@ fi
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-export PATH="/home/mbatsching/git/git-fuzzy/bin:$PATH"
+#export PATH="/home/mbatsching/git/git-fuzzy/bin:$PATH"
 
 # Control the preview window with the up/down keys
 export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
@@ -206,7 +208,11 @@ export PATH=$PATH:/home/mbatsching/.dotnet/tools
 enable_poshtransientprompt
 
 # Start Docker daemon automatically when logging in if not running.
-service docker status > /dev/null
-if [[ "$?" -eq "1" || "$?" -eq "3" ]]; then
-    sudo service docker start 
-fi
+
+export PATH=/usr/bin:$PATH
+#export DOCKER_HOST=unix:///mnt/wslg/runtime-dir/docker.sock
+#service docker status > /dev/null
+#if [[ "$?" -eq "1" || "$?" -eq "3" ]]; then
+    ##sudo service docker start
+    #PATH=/usr/bin:/sbin:/usr/sbin:$PATH dockerd-rootless.sh  --iptables=false
+#fi
