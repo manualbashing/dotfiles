@@ -216,3 +216,5 @@ export PATH=/usr/bin:$PATH
     ##sudo service docker start
     #PATH=/usr/bin:/sbin:/usr/sbin:$PATH dockerd-rootless.sh  --iptables=false
 #fi
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
