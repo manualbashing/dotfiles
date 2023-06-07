@@ -1,4 +1,5 @@
 language en_US.utf8
+set ff=unix
 
 " Tells vim-plug where to install plugins.
 call plug#begin('C:\Users\m.batsching\AppData\Local\nvim\plugged\')
