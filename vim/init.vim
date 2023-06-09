@@ -1,8 +1,14 @@
 language en_US.utf8
 set ff=unix
 
-" Tells vim-plug where to install plugins.
 if has("win32") || has("win64")
+	let windows=1
+else
+	let windows=0
+endif
+
+" Tells vim-plug where to install plugins.
+if windows
 	call plug#begin('C:\Users\m.batsching\AppData\Local\nvim\plugged\')
 else
 	call plug#begin('~/.config/nvim/plugged/')
@@ -33,6 +39,10 @@ set clipboard+=unnamedplus
 " Appearance
 colorscheme gruvbox
 set number
+
+" Remove background in terminal
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " Editing
 "
