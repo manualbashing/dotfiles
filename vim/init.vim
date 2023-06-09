@@ -2,7 +2,11 @@ language en_US.utf8
 set ff=unix
 
 " Tells vim-plug where to install plugins.
-call plug#begin('C:\Users\m.batsching\AppData\Local\nvim\plugged\')
+if has("win32") || has("win64")
+	call plug#begin('C:\Users\m.batsching\AppData\Local\nvim\plugged\')
+else
+	call plug#begin('~/.config/nvim/plugged/')
+endif
 
 " Tells vim-plug where to download plugins.
 Plug 'https://github.com/scrooloose/nerdtree'
