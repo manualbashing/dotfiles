@@ -21,6 +21,7 @@ Plug 'https://github.com/epwalsh/obsidian.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/vim-peekaboo'
 " Tells vim-plug to stop looking for plugins.
 call plug#end()
 
